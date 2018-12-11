@@ -237,8 +237,7 @@ class App extends Component {
           ]
         });
       })
-      .catch(err => (this.setState({error: true, loading: false})
-      ))
+      .catch(err => this.setState({ error: true, loading: false }));
   };
 
   render() {
@@ -246,15 +245,10 @@ class App extends Component {
       <div className="App">
         <Header />
         <Search getUsers={this.getUsers} />
-        {this.state.loading ? ( <span className="loader">
-          <Loader
-            type="Triangle"
-            color="white"
-            height={50}
-            width={50}
-          />
+        {this.state.loading ? (
+          <span className="loader">
+            <Loader type="Triangle" color="white" height={50} width={50} />
           </span>
-          
         ) : null}
         <Error error={this.state.error} />
         <div className="list-container">
